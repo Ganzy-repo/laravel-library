@@ -26,7 +26,7 @@ class Book extends Model
             'books.title',
             'books.author',
             'books.qty',
-            'books.year'
+            'books.year'    
         )->get();
     }
 }
