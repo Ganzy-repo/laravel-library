@@ -48,7 +48,7 @@ class CategoryServiceController extends Controller
     {
         $data = $this->category->find($id);
 
-        if (!$data) {
+        if (! $data) {
             return response([
                 'message' => 'Category not found!',
                 'data' => $data,
@@ -68,14 +68,14 @@ class CategoryServiceController extends Controller
     {
         $data = $this->category->find($id);
 
-        if (!$data) {
+        if (! $data) {
             return response([
                 'message' => 'Category not found!',
             ], 404);
         }
 
         $request->validate([
-            'category_name' => 'required|string|min:3|max:255|unique:categories,category_name,' . $id,
+            'category_name' => 'required|string|min:3|max:255|unique:categories,category_name,'.$id,
         ]);
 
         $data->update([
@@ -95,7 +95,7 @@ class CategoryServiceController extends Controller
     {
         $data = $this->category->find($id);
 
-        if (!$data) {
+        if (! $data) {
             return response([
                 'message' => 'Category not found!',
             ], 404);

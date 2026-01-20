@@ -4,8 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class BookServiceController extends Controller
 {
@@ -43,8 +43,8 @@ class BookServiceController extends Controller
         if ($request->file('cover')) {
             // $filename = Carbon::now().'.'.$request->file('cover')->extension();
             // $request->file('cover')->storeAs('upload', $filename, 'public');
-        $filename = now()->format('Ymd_His') . '.' . $request->file('cover')->extension();
-        $request->file('cover')->move(public_path('/storage/upload'), $filename);
+            $filename = now()->format('Ymd_His').'.'.$request->file('cover')->extension();
+            $request->file('cover')->move(public_path('/storage/upload'), $filename);
         }
 
         $this->book->create([
